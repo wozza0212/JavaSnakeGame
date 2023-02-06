@@ -10,9 +10,9 @@ public class Main {
         obj.setBounds(10, 10, 905, 700); //Game Screen
         obj.setBackground(Color.DARK_GRAY);
         obj.setResizable(false);
-        obj.setVisible(true);
         obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         obj.add(gameplay);
+        obj.setVisible(true);
 
 
     }
