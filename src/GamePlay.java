@@ -19,7 +19,7 @@ public class GamePlay extends JPanel {
         g.setColor(Color.DARK_GRAY);
         g.drawRect(24, 74,  851, 577);
 
-        //Display gampleay background
+        //Display gameplay background
         g.setColor(Color.black);
         g.fillRect(25, 75, 850, 575);
 
