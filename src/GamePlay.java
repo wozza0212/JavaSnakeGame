@@ -103,7 +103,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 headUp.paintIcon(this, g, snakeXlength[i], snakeYlength[i]);
             }
             if (i==0 && down){
-                headDown = new ImageIcon(".//game_images/SnakeHeadRight.png");
+                headDown = new ImageIcon(".//game_images/SnakeHeadDown.png");
                 Image snakeDown = headDown.getImage();
                 Image headDownImage = snakeDown.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 //May have to declare new image and change variabble name for two lines above
