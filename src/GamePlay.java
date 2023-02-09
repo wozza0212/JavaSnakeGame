@@ -34,7 +34,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600,
             625, 650, 675, 700, 725, 750, 775, 800, 825, 850};
 
-    private int [] fruitYposition = {25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300,
+    private int [] fruitYposition = {75, 100, 125, 150, 175, 200, 225, 250, 275, 300,
             325, 350, 375, 400, 425, 450, 475, 500, 525, 550, 575, 600, 625};
 
     private ImageIcon fruitImage;
@@ -132,6 +132,20 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 tail.paintIcon(this, g, snakeXlength[i], snakeYlength[i]);
 
             }
+
+            fruitImage = new ImageIcon(".//game_images/egg.png");
+            Image egg = fruitImage.getImage();
+            Image eggImage = egg.getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+            //May have to declare new image and change variabble name for two lines above
+            fruitImage = new ImageIcon(eggImage);
+
+            if(fruitXposition[xPosition] == snakeXlength[0] && fruitYposition[yPosition] == snakeYlength[0]){
+                score = score + 1;
+                lengthOfSnake++;
+                xPosition = random.nextInt(34);
+                yPosition = random.nextInt(23);
+            }
+            fruitImage.paintIcon(this, g, fruitXposition[xPosition], fruitYposition[yPosition]);
 
         }
 
