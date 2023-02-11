@@ -90,6 +90,15 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         headRight = new ImageIcon(headRightImage);
         headRight.paintIcon(this, g, snakeXlength[0], snakeYlength[0]);
 
+        //display score and lenght
+        g.setColor(Color.black);
+        g.setFont(new Font("arial", Font.PLAIN, 14));
+        g.drawString("Scores: " + score, 780, 30 );
+
+        g.setColor(Color.white);
+        g.setFont(new Font("arial", Font.PLAIN, 14));
+        g.drawString("Length: " + lengthOfSnake, 780, 50 );
+
         for(int i = 0; i<lengthOfSnake; i++) {
             if (i==0 && right){
                 headRight = new ImageIcon(".//game_images/SnakeHeadRight.png");
@@ -147,6 +156,24 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             }
             fruitImage.paintIcon(this, g, fruitXposition[xPosition], fruitYposition[yPosition]);
 
+        }
+
+        for(int i=1; i<lengthOfSnake; i++){
+            if(snakeXlength[i] == snakeXlength[0] && snakeYlength[i] == snakeYlength[0]){
+                right = false;
+                left = false;
+                up = false;
+                down = false;
+
+                g.setColor(Color.RED);
+                g.setFont(new Font("arial", Font.BOLD, 40));
+                g.drawString("Game Over! Score: " + score, 250, 300);
+
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("arial", Font.BOLD, 30));
+                g.drawString("Press Enter to restart!", 350, 340);
+
+            }
         }
 
         g.dispose();
@@ -229,6 +256,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            moves = 0;
+            score = 0;
+            lengthOfSnake = 3;
+            repaint();
+        }
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
             moves++;
             right = true;
